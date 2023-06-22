@@ -1,95 +1,94 @@
+"use client"
+
 import Image from 'next/image'
+import React, { useState } from 'react'
+
+import { NumericFormat } from 'react-number-format'
+import PuffLoader from 'react-spinners/PuffLoader'
+import { AiOutlinePlus } from 'react-icons/ai'
+
 import styles from './page.module.css'
 
-export default function Home() {
+import MarvelHelper from '@/helpers/MarvelHelper'
+import Navigator from "@/utils/navigator"
+
+import crypto from "crypto"
+import { useEffect } from 'react';
+
+export default async function Home() {
+
+
+  const [page, setPage] = useState<number>(0)
+  const [load, setLoad] = useState<boolean>(false)
+
+  const marvelHelper = new MarvelHelper()
+  // const result = await marvelHelper.getListOfCharacters({ limit: 30, offset: 50 })
+  // console.log("result.data.results[0].series.items", result.data.results[0].series.items)
+
+  const [resultSet, setResultSet] = useState<MarvelCharacter[]>([])
+
+  async function getData(page: number, characterName?: string) {
+    setLoad(true)
+
+    const limit = 50
+    const offset = limit * page
+
+
+    let result = []
+    console.log("await marvelHelper.getListOfCharacters({ limit, offset })", await marvelHelper.getListOfCharacters({ limit, offset }))
+
+    if (characterName) {
+      result = await marvelHelper.getListOfCharacters({ limit, offset, characterName }).data.results
+    } else {
+      result = await marvelHelper.getListOfCharacters({ limit, offset }).data.results
+    }
+
+    console.log("result", result)
+    setResultSet(result)
+
+    setLoad(false)
+  }
+
+  useEffect(() => {
+    getData(0)
+  }, [])
+
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+      {resultSet.map(item =>
+        <>
+          <p>{item.name}</p>
+        </>
+      )}
+
+      {load ? (
+        <PuffLoader color="#36d7b7" />
+      ) : (
+        <div className={styles.cont}>
+          <div className={styles.card}>
+            <div className={styles.line}>
+              <div className={styles.divinput}>
+                <label htmlFor="pager" aria-label="Type a page">
+                  <NumericFormat
+                    name="pager"
+                    type="text"
+                    value={page}
+                    onChange={e => setPage(e.target.value)}
+                  />
+                </label>
+              </div>
+            </div>
+            <div className={styles.line}>
+              <div className={styles.line}>
+                <Navigator title="One more page" action={() => getData(page)}>
+                  <AiOutlinePlus />
+                  <span>More</span>
+                </Navigator>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      )}
     </main>
   )
 }

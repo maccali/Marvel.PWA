@@ -1,0 +1,328 @@
+.load {
+  display: flex;
+  align-items: center;
+  content: "entrar";
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+}
+
+.taglink {
+  display: contents;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: none !important;
+  justify-content: stretch;
+  user-select: none;
+}
+
+/* GENERAL ICON TEXT */
+.general-icon-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  user-select: none;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background: var(--color-f);
+  /* border: 1px solid var(--color-a); */
+  box-shadow: 0px 3px 5px 1px rgba(15, 148, 204, 0.15);
+  border-radius: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 36px;
+  transition: all 0.3s;
+}
+
+.general-icon-text:hover {
+  text-decoration: none;
+  /* border: 1px solid var(--accent-color-v1); */
+  background-color: var(--color-g);
+}
+
+.general-icon-text:hover svg {
+  color: var(--color-b);
+}
+.general-icon-text:hover span {
+  color: var(--color-b);
+}
+
+.general-icon-text svg {
+  color: var(--color-a);
+  transition: all 0.1s;
+  height: 16px;
+  width: 16px;
+  margin-right: 12px;
+  transition: all 0.3s;
+}
+
+.general-icon-text span {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.75px;
+  color: var(--color-a);
+  transition: all 0.3s;
+}
+
+.general-icon-text:disabled,
+.general-icon-text:disabled:hover,
+.general-icon-text[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  transform: none;
+}
+
+.general-icon-text:disabled:hover span,
+.general-icon-text:disabled:hover svg {
+  color: #666666 !important;
+  transform: none;
+}
+
+/* GENERAL ICON */
+.general-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  outline: none;
+  user-select: none;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+
+  box-sizing: border-box;
+  background: transparent;
+  border-radius: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 36px;
+  transition: all 0.1s;
+}
+.general-icon svg {
+  color: #000000;
+  transition: all 0.1s;
+  height: 20px;
+  width: 20px;
+}
+
+.general-icon:hover svg {
+  transform: scale(1.15);
+}
+
+.general-icon:disabled,
+.general-icon:disabled:hover,
+.general-icon[disabled] {
+  background-color: transparent;
+  color: #666666;
+  transform: none;
+}
+
+.general-icon:disabled:hover svg {
+  transform: none;
+}
+
+/* GENERAL TEXT */
+.general-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  user-select: none;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  box-shadow: 0px 3px 5px 1px rgba(15, 148, 204, 0.15);
+  border-radius: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 36px;
+  transition: all 0.2s;
+}
+.general-icon:hover {
+  text-decoration: none;
+  border: 1px solid var(--accent-color-v1);
+  background-color: var(--accent-color-v1);
+}
+
+.general-icon span {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.75px;
+  color: #ffffff;
+}
+
+.general-icon:hover span,
+.general-text:hover svg {
+  font-weight: bold;
+  color: #fff !important;
+}
+
+.general-icon:disabled,
+.general-icon:disabled:hover,
+.general-icon[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  transform: none;
+}
+
+.general-icon:disabled:hover span {
+  color: #666666 !important;
+  transform: none;
+}
+
+.general-linked-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  user-select: none;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  margin: 3px;
+  transition: all 0.2s;
+  border-bottom: 2px solid transparent;
+}
+.general-icon:hover {
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent-color-v1);
+}
+
+.general-icon span {
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  letter-spacing: 0.75px;
+  color: var(--accent-color);
+}
+
+.general-icon:hover span,
+.general-text:hover svg {
+  font-weight: bold;
+  color: var(--accent-color-v1) !important;
+}
+
+.general-icon:disabled,
+.general-icon:disabled:hover,
+.general-icon[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  transform: none;
+}
+
+.general-icon:disabled:hover span {
+  color: #666666 !important;
+  transform: none;
+}
+
+/* MENU ICON */
+.menu-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  outline: none;
+  user-select: none;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+
+  box-sizing: border-box;
+  background: transparent;
+  border-radius: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 36px;
+  transition: all 0.1s;
+}
+
+.general-icon svg {
+  color: #ababab;
+  transition: all 0.1s;
+  height: 20px;
+  width: 20px;
+}
+
+.general-icon:hover svg {
+  transform: scale(1.15);
+}
+
+.general-icon:disabled,
+.general-icon:disabled:hover,
+.general-icon[disabled] {
+  background-color: transparent;
+  color: #666666;
+  transform: none;
+}
+
+.general-icon:disabled:hover svg {
+  transform: none;
+}
+
+/* CARD ICON */
+.card-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  outline: none;
+  user-select: none;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+
+  box-sizing: border-box;
+  background: var(--accent-color-v9);
+  border-radius: 50%;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 40px;
+  width: 40px;
+  transition: all 0.1s;
+}
+.general-icon:hover {
+  transform: scale(1.05);
+}
+
+.general-icon svg {
+  color: var(--accent-color-v1);
+  transition: all 0.1s;
+  height: 20px;
+  width: 20px;
+}
+
+.general-icon:hover svg {
+  transform: scale(1.15);
+}
+
+.general-icon:disabled,
+.general-icon:disabled:hover,
+.general-icon[disabled] {
+  background-color: transparent;
+  color: #666666;
+  transform: none;
+}
+
+.general-icon:disabled:hover svg {
+  transform: none;
+}
