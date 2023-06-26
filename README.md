@@ -1,34 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Instruções de setup
 
-## Getting Started
+- Instale o NVM, gerenciador de versões do node  (https://github.com/coreybutler/nvm-windows/releases)
 
-First, run the development server:
+- Usando o nvm intale a versão v14.17.6 ou posrterior no node
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+`nvm install 14.17.6`
+`nvm use 14.17.6`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Install o YARN, gerenciado de pacotes do node 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`npm install --global yarn`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Clone o projeto do repositório
 
-## Learn More
+- Instale o projeto executando
 
-To learn more about Next.js, take a look at the following resources:
+`yarn`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Copie o arquivo ".env.example" para ".env" e coloque as credenciais de teste local
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+DATABASE_URL="mongodb+srv://guimaccali:Kf6sjeHSXNa9atrA@cluster0.pvmntov.mongodb.net/?retryWrites=true&w=majority"
+SHADOW_DATABASE_URL="mongodb+srv://guimaccali:FVLdMeJK8P4CRZXr@cluster0.7h5t9pj.mongodb.net/?retryWrites=true&w=majority"
+JWT_KEY="minha_chave_secreta"
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+GOOGLE_CLIENT_ID="976905194347-3k4lsv6nd4ct3if0m61hlahggs8q8cjq.apps.googleusercontent.com"
+GOOGLE_CLIENT_SECRET_ID="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"
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+GITHUB_CLIENT_ID="bb620eb0cd97edbbabc6"
+GITHUB_CLIENT_SECRET_ID="741c5fd1b11ca15763e6845f5796ac56440aca0d"
+
+FACEBOOK_CLIENT_ID="3544434702454183"
+FACEBOOK_CLIENT_SECRET_ID="90477b736c97543d5494976aa393f118"
+
+NEXTAUTH_URL="http://localhost:4242"
+
+NEXTAUTH_SECRET="bible gun of god 4242"
+
+- Execute o progeto com o comando 
+
+`yarn dev`
+
+- O projeto estará rodando no link 
+
+`http://localhost:4242`

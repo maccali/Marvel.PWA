@@ -22,7 +22,8 @@ class MarvelHelper {
 
     const res = await fetch(url, { method: "GET" });
     const data = await res.json();
-
+    console.log("url -> ", url);
+    console.log("data -> ", data);
     return data;
   }
 
@@ -50,7 +51,9 @@ class MarvelHelper {
 
     const data = await res.json();
 
-    return data;
+    console.log("url -> ", url);
+    console.log("data -> ", data.code);
+    return { ...data };
   }
 }
 

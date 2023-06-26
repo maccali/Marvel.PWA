@@ -1,11 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-"use client"
-
 import React, { ReactNode, useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import { ClipLoader } from "react-spinners";
+import {
+  GeneralIcon,
+  GeneralIconText,
+  GeneralLinkedText,
+  GeneralText,
+  MenuIcon,
+  Load
+} from "./styles";
 
-import styles from "./styles.module.css";
 
 type NavigatorFace = {
   title: string;
@@ -16,9 +21,7 @@ type NavigatorFace = {
   | "general-icon"
   | "general-text"
   | "general-linked-text"
-  | "menu-vertical-icon-text"
   | "menu-icon"
-  | "card-icon";
   children: ReactNode;
   href?: string;
   action?: (() => void) | ((e: any) => void);
@@ -86,15 +89,14 @@ function Navigator({
     type,
   };
 
-  if (style) {
-    dataClass.className = styles[style];
-  } else {
-    dataClass.className = className ? className : "";
-  }
 
-  if (style && className) {
-    dataClass.className = styles[style] + " " + className
-  }
+  const styleToComponentMap = {
+    "general-icon-text": GeneralIconText,
+    "general-icon": GeneralIcon,
+    "general-text": GeneralText,
+    "general-linked-text": GeneralLinkedText,
+    "menu-icon": MenuIcon,
+  };
 
   if (href) {
     dataClass.href = href;
@@ -114,8 +116,7 @@ function Navigator({
   if (load) {
     return (
       <>
-        <div
-          className={styles.load}
+        <Load
           style={{
             width: Number(width),
             height: Number(height),
@@ -125,21 +126,24 @@ function Navigator({
             size={23}
             color={loadColor ? loadColor : "var(--primary-color)"}
           />
-        </div>
+        </Load>
       </>
     );
   }
 
   if (href) {
     return (
-      <Link {...dataClass} href={href} >
+      <Link {...dataClass} href={href}>
         {children}
       </Link>
     );
   } else {
     return (
       <>
-        <button {...dataClass}>{children}</button>
+        {style === "general-icon-text" && <GeneralIconText {...dataClass}>{children}</GeneralIconText>}
+        {style === "general-icon" && <GeneralIcon {...dataClass}>{children}</GeneralIcon>}
+        {style === "general-linked-text" && <GeneralLinkedText {...dataClass}>{children}</GeneralLinkedText>}
+        {style === "menu-icon" && <MenuIcon {...dataClass}>{children}</MenuIcon>}
       </>
     );
   }
