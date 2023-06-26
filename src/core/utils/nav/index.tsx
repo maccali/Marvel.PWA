@@ -11,10 +11,11 @@ import { DivImage, MenuList, NavigationMenu } from './styles'
 
 import { Container } from "@/utils/container"
 
+
+
 function Nav() {
   const [installBtn, setInstallBtn] = useState<boolean>(false)
   const [deferredPrompt, setDeferredPrompt] = useState<any>()
-
 
   useEffect(() => {
     ; (function () {

@@ -9,10 +9,13 @@ import { AiOutlinePlus } from 'react-icons/ai'
 
 
 import MarvelHelper from '@/helpers/MarvelHelper'
-import Navigator from "@/utils/navigator"
 
 // import crypto from "crypto"
 import { useEffect } from 'react';
+
+import CardHeroes from '@/cards/heroes/index';
+
+import { Main } from './styles'
 
 export default function HomePainel() {
 
@@ -57,16 +60,10 @@ export default function HomePainel() {
   }, [])
 
   return (
-    <main >
-      lvolszdfihjgo;asghisdopghjdsiolghsdlfghuidsiopgudsfhuiohjsdfgbpsdssssDDGGGFFhhg
-
+    <Main>
       {resultSet?.map(item =>
-        <>
-          <p>{item.name}</p>
-        </>
+        <CardHeroes key={item.id} data={item} />
       )}
-
-
-    </main>
+    </Main>
   )
 }

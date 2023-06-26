@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
 export const NavigationMenu = styled.nav`
+  position: fixed;
+  width: 100% !important;
   height: 60px;
   background-color: var(--black);
+  z-index: 800;
 
   div {
     display: flex;
@@ -28,18 +31,20 @@ export const MenuList = styled.ul`
     padding-left: 15px;
     padding-right: 15px;
     color: #f1f1f1;
-    font-size: 17px;
+    font-size: 15px;
     transition: all 0.17s;
     height: 100%;
     cursor: pointer;
+    border-radius: 0;
   }
 
   & li a svg,
   & li button svg {
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     margin-right: 6px;
     color: #f1f1f1;
+    transition: all 0.1s;
   }
 
   & li a:hover,
@@ -52,6 +57,7 @@ export const MenuList = styled.ul`
   & li a:hover svg,
   & li button:hover svg {
     color: #f1f1f1;
+    transform: scale(1.25);
   }
 `;
 

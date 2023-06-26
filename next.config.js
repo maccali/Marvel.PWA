@@ -29,25 +29,7 @@ module.exports = withPWA({
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**.googleusercontent.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "**.githubusercontent.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "**.fbsbx.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "**.fbcdn.net",
+        hostname: "**.annihil.us",
         port: "",
         pathname: "/**",
       },

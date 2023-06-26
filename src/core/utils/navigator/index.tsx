@@ -29,7 +29,7 @@ type NavigatorFace = {
   loadColor?: string;
   disabled?: boolean;
   target?: string;
-  className?: string;
+  // className?: string;
   rel?: string;
 };
 
@@ -45,7 +45,7 @@ function Navigator({
   loadColor,
   disabled,
   target,
-  className,
+  // className,
   rel,
 }: NavigatorFace) {
   const ref = useRef(null);
@@ -65,7 +65,7 @@ function Navigator({
     id: string | undefined;
     "data-cy": string | undefined;
     title: string;
-    className: string | undefined;
+    // className: string | undefined;
     target: string | undefined;
     rel: string | undefined;
     disabled: boolean | undefined;
@@ -79,7 +79,7 @@ function Navigator({
     id: identifier,
     "data-cy": identifier,
     title,
-    className,
+    // className,
     target,
     rel,
     disabled,
