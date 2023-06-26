@@ -66,6 +66,7 @@ export const DivImage = styled.div`
   height: inherit;
   align-items: center;
 
+  
   & img {
     height: 60px;
   }

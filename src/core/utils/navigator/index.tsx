@@ -1,4 +1,7 @@
+"use client"
+
 /* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React, { ReactNode, useRef, useEffect, useState } from "react";
 import Link from "next/link";
 import { ClipLoader } from "react-spinners";

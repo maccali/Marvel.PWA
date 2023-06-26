@@ -6,4 +6,5 @@ export const Main = styled.main`
   width: 100%;
   flex-wrap: wrap;  
   padding-top: 64px;
+  
 `;

@@ -14,6 +14,7 @@ export const Card = styled.div`
     transform: scale(1.08) rotate(-3deg);
     z-index: 400;
   }
+  
 
   figure {
     display: flex;

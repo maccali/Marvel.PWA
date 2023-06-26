@@ -273,6 +273,5 @@ export const MenuIcon = styled.button`
 
   &:disabled:hover svg {
     transform: none;
-    
   }
 `;
