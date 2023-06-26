@@ -30,30 +30,28 @@ export const GeneralIconText = styled.button`
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  /* background: var(--color-f); */
-  background: #a0da0d;
-  box-shadow: 0px 3px 5px 1px rgba(15, 148, 204, 0.15);
-  border-radius: 10px;
+  background: var(--red);
   padding-left: 16px;
   padding-right: 16px;
   height: 36px;
   transition: all 0.3s;
+  border: 0px;
 
   &:hover {
     text-decoration: none;
-    background-color: var(--color-g);
+    background-color: var(--dark-red);
   }
 
   &:hover svg {
-    color: var(--color-b);
+    color: #000;
   }
 
   &:hover span {
-    color: var(--color-b);
+    color: #000;
   }
 
   svg {
-    color: var(--color-a);
+    color:#000;
     transition: all 0.1s;
     height: 16px;
     width: 16px;
@@ -68,7 +66,7 @@ export const GeneralIconText = styled.button`
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.75px;
-    color: var(--color-a);
+    color: #000;
     transition: all 0.3s;
   }
 

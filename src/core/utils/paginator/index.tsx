@@ -8,18 +8,14 @@ import { AiOutlinePlus } from 'react-icons/ai'
 
 import Navigator from '@/utils/navigator';
 
-import { PaginatorStyle } from "./styles"
+import { PaginatorStyle, Label } from "./styles"
 
-
-type GetDataFunction = (page: number, characterName?: string) => void;
 
 import { CharactersContext } from "@/contexts/characters";
 
 function Paginator() {
 
   const { getData, page, setPage } = useContext(CharactersContext);
-
-
 
   const handlePageChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPage(Number(e.target.value));
@@ -31,7 +27,7 @@ function Paginator() {
 
   return (
     <PaginatorStyle>
-      <div >
+      <Label >
         <label htmlFor="pager" aria-label="Type a page">
           <NumericFormat
             name="pager"
@@ -40,11 +36,11 @@ function Paginator() {
             onChange={handlePageChange}
           />
         </label>
-      </div>
+      </Label>
       <div >
         <div >
           <Navigator
-            title="One more page"
+            title={`Add page ${page}`}
             style="general-icon-text"
             action={handleActionClick}
           >
