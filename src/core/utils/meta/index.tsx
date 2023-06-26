@@ -22,6 +22,7 @@ export function generateMetadata({ common, meta }: IMeatadate): Metadata {
 
   const defaultMeta: Metadata = {
     manifest: "/manifest.json?v=1",
+    title: common?.title ? common.title : title,
     icons: {
       icon: "/favicon.ico?v=1",
       apple: "/icons/icon192.png?v2"
