@@ -34,6 +34,19 @@ export const LoaderStyle = styled.div`
   width: 100%;
   margin-top: 37px;
   margin-bottom: 37px;
-  
+
 `;
 
+export const ProblemStyle = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 10px;
+  margin-top: 17px;
+  margin-bottom: 57px;
+  
+  p {
+    color: white;
+    font-size: 18px;
+  }
+`;

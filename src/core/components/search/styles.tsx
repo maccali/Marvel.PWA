@@ -44,7 +44,6 @@ export const SearchInputContainer = styled.div`
   }
 `;
 
-
 export const SearchButtonContainer = styled.div`
   button {
     height: 36px;

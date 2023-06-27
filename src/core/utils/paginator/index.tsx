@@ -9,7 +9,7 @@ import { AiOutlinePlus } from 'react-icons/ai'
 
 import Navigator from '@/utils/navigator';
 
-import { PaginatorStyle, Label, LoaderStyle } from "./styles"
+import { PaginatorStyle, Label, LoaderStyle, ProblemStyle } from "./styles"
 
 
 import { CharactersContext } from "@/contexts/characters";
@@ -33,6 +33,7 @@ function Paginator() {
     setChangePage(changePage + 1)
     setPage(changePage)
   };
+
 
   if (charactersLoading) {
     return (
@@ -68,15 +69,14 @@ function Paginator() {
       </PaginatorStyle>)
     } else {
       if (fail) {
-        return (<LoaderStyle>
-          Ouve uma falha no carragamento
-        </LoaderStyle >)
+        return (<ProblemStyle>
+          <p>Some problem occurred</p>
+        </ProblemStyle >)
       }
-
       if (finishResults) {
-        return (<>
-          <p>Fim dos resultados</p>
-        </>)
+        return (<ProblemStyle>
+          <p>Finish of results</p>
+        </ProblemStyle>)
       }
     }
   }
