@@ -30,7 +30,6 @@ export const Card = styled.div`
     height: 100%;
   }
 
-
   figcaption {
     position: absolute;
     display: flex;

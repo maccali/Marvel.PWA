@@ -60,7 +60,6 @@ export const MenuList = styled.ul`
     color: #f1f1f1;
     transform: scale(1.25);
   }
-
   
 
   @media (max-width: 470px) {

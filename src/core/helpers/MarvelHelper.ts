@@ -51,6 +51,7 @@ class MarvelHelper {
 
     const data = await res.json();
 
+
     console.log("url -> ", url);
     console.log("data -> ", data.code);
     console.log("data -> ", data);

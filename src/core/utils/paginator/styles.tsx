@@ -25,7 +25,15 @@ export const Label = styled.div`
     color: #fff;
     font-size: 18px;
     text-align: center;
-
   }
 `
+
+export const LoaderStyle = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 37px;
+  margin-bottom: 37px;
+  
+`;
 

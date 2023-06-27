@@ -201,7 +201,6 @@ export const GeneralLinkedText = styled.button`
   &:hover {
     text-decoration: none;
     border-bottom: 2px solid var(--accent-color-v1);
-  
   }
 
   span {
@@ -274,4 +273,5 @@ export const MenuIcon = styled.button`
   &:disabled:hover svg {
     transform: none;
   }
+  
 `;

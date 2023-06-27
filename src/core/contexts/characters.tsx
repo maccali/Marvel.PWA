@@ -13,7 +13,9 @@ type CharactersContextType = {
   characterName?: string,
   setCharacterName: (name: string | undefined) => void,
   setResponseData: (array: MarvelCharacter[]) => void,
-  getData: (firstSearch?: boolean) => void
+  getData: (firstSearch?: boolean) => void,
+  finishResults: boolean,
+  fail: boolean
 };
 
 const CharactersContext = createContext({} as CharactersContextType);
@@ -29,11 +31,14 @@ function CharactersProvider({ children }: Props) {
   const [responseData, setResponseData] = useState<Array<MarvelCharacter>>([])
   const [load, setLoad] = useState<boolean>(false)
   const [fail, setFail] = useState<boolean>(false)
+  const [finishResults, setFinishResults] = useState<boolean>(false)
   const [page, setPage] = useState<number>(0)
   const [characterName, setCharacterName] = useState<string | undefined>(undefined)
 
   async function getData(firstSearch?: boolean) {
     setLoad(true)
+    setFinishResults(false)
+    setFail(false)
 
     if (firstSearch) {
       setPage(0)
@@ -48,10 +53,18 @@ function CharactersProvider({ children }: Props) {
 
     if (characterName) {
       result = await marvelHelper.getListOfCharacters({ limit, offset, characterName })
-      results = result.data.results
     } else {
       result = await marvelHelper.getListOfCharacters({ limit, offset })
-      results = result.data.results
+    }
+
+    if (result.code != 200) {
+      setFail(true)
+    }
+
+    results = result.data.results
+
+    if (results.length < limit) {
+      setFinishResults(true)
     }
 
     if (firstSearch) {
@@ -74,7 +87,9 @@ function CharactersProvider({ children }: Props) {
         characterName,
         setCharacterName,
         setResponseData,
-        getData
+        getData,
+        finishResults,
+        fail
       }}
     >
       {children}
