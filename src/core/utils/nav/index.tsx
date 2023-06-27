@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 
-
-import { CiSquareInfo, CiSaveDown2 } from "react-icons/ci"
+import { CiSquareInfo, CiSaveDown2, CiSearch } from "react-icons/ci"
 
 import Navigator from '@/utils/navigator'
 
@@ -11,10 +10,11 @@ import { DivImage, MenuList, NavigationMenu } from './styles'
 
 import { Container } from "@/utils/container"
 
-
+import SearchComponent from '@/components/search'
 
 function Nav() {
   const [installBtn, setInstallBtn] = useState<boolean>(false)
+  const [openSearch, setOpenSearch] = useState<boolean>(false)
   const [deferredPrompt, setDeferredPrompt] = useState<any>()
 
   useEffect(() => {
@@ -44,6 +44,10 @@ function Nav() {
     })
   }
 
+  function search() {
+    setOpenSearch(!openSearch)
+  }
+
   return (
     <>
       <NavigationMenu>
@@ -63,7 +67,16 @@ function Nav() {
             </li>
           </MenuList>
           <MenuList>
-
+            <li>
+              <Navigator
+                title={`${openSearch ? "Close" : "Open"} Search`}
+                action={() => search()}
+                style='menu-icon'
+              >
+                <CiSearch />
+                <p>{openSearch ? "Close" : "Open"} Search</p>
+              </Navigator>
+            </li>
             <li>
               <Navigator
                 title="About the App"
@@ -76,19 +89,19 @@ function Nav() {
             </li>
             <li>{installBtn ? (
               <Navigator
-                title="Instalar Aplicação"
+                title="Install Aplication"
                 action={() => install()}
                 style='menu-icon'
               >
                 <CiSaveDown2 />
-                <p>Instalar</p>
+                <p>Install</p>
               </Navigator>
             ) : (
               ''
             )}</li>
-
           </MenuList>
         </Container>
+        <SearchComponent openSearch={openSearch} />
       </NavigationMenu>
     </>
   )

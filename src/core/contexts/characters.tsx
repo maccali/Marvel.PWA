@@ -9,8 +9,11 @@ type CharactersContextType = {
   charactersLoading: boolean,
   charactersLoadingFail: boolean,
   page: number,
-  setPage: (page: number) => void
-  getData: (characterName?: string) => void
+  setPage: (page: number) => void,
+  characterName?: string,
+  setCharacterName: (name: string | undefined) => void,
+  setResponseData: (array: MarvelCharacter[]) => void,
+  getData: (firstSearch?: boolean) => void
 };
 
 const CharactersContext = createContext({} as CharactersContextType);
@@ -27,9 +30,15 @@ function CharactersProvider({ children }: Props) {
   const [load, setLoad] = useState<boolean>(false)
   const [fail, setFail] = useState<boolean>(false)
   const [page, setPage] = useState<number>(0)
+  const [characterName, setCharacterName] = useState<string | undefined>(undefined)
 
-  async function getData(characterName?: string) {
+  async function getData(firstSearch?: boolean) {
     setLoad(true)
+
+    if (firstSearch) {
+      setPage(0)
+      setResponseData([])
+    }
 
     const limit = 10
     const offset = limit * page
@@ -45,14 +54,14 @@ function CharactersProvider({ children }: Props) {
       results = result.data.results
     }
 
-    setResponseData([...responseData, ...results])
-    setPage(page + 1)
+    if (firstSearch) {
+      setResponseData([...results])
+    } else {
+      setResponseData([...responseData, ...results])
+    }
+
     setLoad(false)
   }
-
-  useEffect(() => {
-    console.log("responseData", responseData);
-  }, [responseData]);
 
   return (
     <CharactersContext.Provider
@@ -62,6 +71,9 @@ function CharactersProvider({ children }: Props) {
         charactersResponse: responseData,
         page,
         setPage,
+        characterName,
+        setCharacterName,
+        setResponseData,
         getData
       }}
     >

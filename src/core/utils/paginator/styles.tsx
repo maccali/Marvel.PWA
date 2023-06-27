@@ -25,5 +25,7 @@ export const Label = styled.div`
     color: #fff;
     font-size: 18px;
     text-align: center;
+
   }
 `
+

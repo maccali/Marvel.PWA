@@ -15,7 +15,6 @@ export const Card = styled.div`
     z-index: 400;
   }
   
-
   figure {
     display: flex;
     height: 100%;
@@ -31,6 +30,7 @@ export const Card = styled.div`
     height: 100%;
   }
 
+
   figcaption {
     position: absolute;
     display: flex;
@@ -45,4 +45,5 @@ export const Card = styled.div`
 
   }
 `;
+
 

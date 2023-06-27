@@ -59,6 +59,7 @@ export const GeneralIconText = styled.button`
     transition: all 0.3s;
   }
 
+
   span {
     font-family: "Lato", sans-serif;
     font-style: normal;
@@ -200,6 +201,7 @@ export const GeneralLinkedText = styled.button`
   &:hover {
     text-decoration: none;
     border-bottom: 2px solid var(--accent-color-v1);
+  
   }
 
   span {

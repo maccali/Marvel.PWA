@@ -30,14 +30,15 @@ export default function HomePainel() {
   const { getData, charactersResponse } = useContext(CharactersContext)
 
   useEffect(() => {
-    getData(0)
+    getData(true)
   }, [])
 
   return (
     <>
       <Main>
         {charactersResponse?.map(item =>
-          <CardHeroes key={item.id} data={item} />
+          // <CardHeroes key={item.id} data={item} />
+          <CardHeroes data={item} />
         )}
       </Main>
       <Paginator />

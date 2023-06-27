@@ -12,17 +12,25 @@ import { PaginatorStyle, Label } from "./styles"
 
 
 import { CharactersContext } from "@/contexts/characters";
+import { useEffect } from 'react';
 
 function Paginator() {
 
   const { getData, page, setPage } = useContext(CharactersContext);
 
+  const [changePage, setChangePage] = useState<number>(page + 1)
+
   const handlePageChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setPage(Number(e.target.value));
+    setChangePage(Number(e.target.value));
   };
 
-  const handleActionClick = () => {
+  useEffect(() => {
     getData();
+  }, [page])
+
+  const handleActionClick = (changePage: number) => {
+    setChangePage(changePage + 1)
+    setPage(changePage)
   };
 
   return (
@@ -32,17 +40,18 @@ function Paginator() {
           <NumericFormat
             name="pager"
             type="text"
-            value={page}
+            value={Number(changePage)}
             onChange={handlePageChange}
-          />
+          />.
         </label>
+        
       </Label>
       <div >
         <div >
           <Navigator
-            title={`Add page ${page}`}
+            title={`Add page ${changePage}`}
             style="general-icon-text"
-            action={handleActionClick}
+            action={() => handleActionClick(changePage)}
           >
             <AiOutlinePlus />
             <span>More</span>

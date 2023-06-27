@@ -44,7 +44,7 @@ class MarvelHelper {
       `?ts=${ts}&apikey=${publicKey}&hash=${hash}&limit=${limit}&offset=${offset}`;
 
     if (characterName) {
-      url = url + `&name=${characterName}`;
+      url = url + `&nameStartsWith=%${characterName}`;
     }
 
     const res = await fetch(url, { method: "GET" });
@@ -53,6 +53,7 @@ class MarvelHelper {
 
     console.log("url -> ", url);
     console.log("data -> ", data.code);
+    console.log("data -> ", data);
     return { ...data };
   }
 }

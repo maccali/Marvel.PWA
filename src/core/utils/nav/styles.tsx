@@ -13,6 +13,7 @@ export const NavigationMenu = styled.nav`
   }
 `;
 
+
 export const MenuList = styled.ul`
   display: flex;
   padding: 0;
@@ -59,14 +60,23 @@ export const MenuList = styled.ul`
     color: #f1f1f1;
     transform: scale(1.25);
   }
+
+  
+
+  @media (max-width: 470px) {
+    & li a p,
+    & li button p {
+      display: none;
+    }
+  }
 `;
+
 
 export const DivImage = styled.div`
   display: inline-flex;
   height: inherit;
   align-items: center;
 
-  
   & img {
     height: 60px;
   }
