@@ -25,8 +25,6 @@ class MarvelHelper {
 
     const res = await fetch(url, { method: "GET", next: { revalidate: 60 } });
     const data = await res.json();
-    console.log("url -> ", url);
-    console.log("data -> ", data);
     return { ...data };
   }
 
@@ -53,10 +51,6 @@ class MarvelHelper {
     const res = await fetch(url, { method: "GET" });
 
     const data = await res.json();
-
-    console.log("url -> ", url);
-    console.log("data -> ", data.code);
-    console.log("data -> ", data);
     return { ...data };
   }
 
@@ -70,8 +64,6 @@ class MarvelHelper {
 
     const res = await fetch(url, { method: "GET", next: { revalidate: 60 } });
     const data = await res.json();
-    console.log("url -> ", url);
-    console.log("data -> ", data);
     return { ...data };
   }
 
@@ -81,6 +73,34 @@ class MarvelHelper {
     const { publicKey, ts, hash } = this.genCredentials();
 
     let url = `https://gateway.marvel.com/v1/public/characters/${id}/comics`;
+    url = url + `?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+
+    const res = await fetch(url, { method: "GET", next: { revalidate: 60 } });
+    const data = await res.json();
+    return { ...data };
+  }
+
+  async getSeriesOfCharacterById(
+    id: number
+  ): Promise<MarvelApiResponse<MarvelSerie>> {
+    const { publicKey, ts, hash } = this.genCredentials();
+
+    let url = `https://gateway.marvel.com/v1/public/characters/${id}/series`;
+    url = url + `?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+
+    const res = await fetch(url, { method: "GET", next: { revalidate: 60 } });
+    const data = await res.json();
+    console.log("url -> ", url);
+    console.log("data -> ", data);
+    return { ...data };
+  }
+
+  async getStoriesOfCharacterById(
+    id: number
+  ): Promise<MarvelApiResponse<MarvelStories>> {
+    const { publicKey, ts, hash } = this.genCredentials();
+
+    let url = `https://gateway.marvel.com/v1/public/characters/${id}/stories`;
     url = url + `?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
 
     const res = await fetch(url, { method: "GET", next: { revalidate: 60 } });

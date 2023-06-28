@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Main = styled.main`
     display: grid;
-    margin-top: 16px;
     grid-gap: 10px;
     height: auto;
     grid-template-areas:
@@ -13,6 +12,49 @@ export const Main = styled.main`
       "stories";
     grid-template-rows: auto auto auto auto;
     grid-template-columns: 1fr;
+
+    section .head {
+      display: flex;
+      flex-direction: row;
+      justify-content: center ;
+    }
+
+    section .head h2 {
+      margin-top: 16px;
+      height: 30px;
+    }
+
+    section .head div{
+      height: 0px;
+    }
+
+    section h2 {
+      color:white;
+    }
+
+    section.series .head div,
+    section.series .head h2 {
+      width: 230px;
+      margin: 8px;
+    }
+
+    section.comics .head div,
+    section.comics .head h2 {
+      width: 230px;
+      margin: 8px;
+    }
+
+    section.events .head div,
+    section.events .head h2 {
+      width: 230px;
+      margin: 8px;
+    }
+
+    section.stories .head div,
+    section.stories .head h2 {
+      width: 230px;
+      margin: 8px;
+    }
 
     .bio {
       grid-area: bio;
@@ -31,35 +73,3 @@ export const Main = styled.main`
     }
 
 `;
-
-
-// <section className='bio'>
-// {/* <Image
-//   className='image'
-//   src={`${data.thumbnail.path.replace(/^http:\/\//i, "https://")}.${data.thumbnail.extension}`}
-//   alt={`Image of ${data.name}`}
-//   fill={true}
-
-// /> */}
-// <h1 className='name'>{data.name}</h1>
-// <p className='description'>{data.description}</p>
-// <p className='modified'>{data.modified}</p>
-// <p className='urls'>{JSON.stringify(data.urls)}</p>
-
-
-
-// </section>
-// <section className='comics'>
-// <h2>Commics</h2>
-// {JSON.stringify(data.comics.items)}
-// </section>
-// <section className='series'>
-// <h2>Series</h2>
-// {JSON.stringify(data.series.items)}
-// </section>
-
-// <section className='stories'>
-// <h2>Stories</h2>
-// {JSON.stringify(data.stories.items)}
-// </section>
-// <CharacterEventsPainel className='events' id={data.id} />

@@ -1,12 +1,12 @@
 "use client"
 
-import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { BarLoader } from 'react-spinners'
 
-
-import { Main } from './styles'
+import CardEvents from '@/cards/event'
 import MarvelHelper from '@/helpers/MarvelHelper';
-import { useEffect } from 'react';
+
+import { Main, TextHelp, LoaderStyle } from '../styles'
 
 interface ICharacterEventsPainel {
   id: number
@@ -15,33 +15,39 @@ interface ICharacterEventsPainel {
 export default function CharacterEventsPainel({ id }: ICharacterEventsPainel) {
 
   const [characterEvents, setCharacterEvents] = useState<MarvelEventData[]>([])
+  const [load, setLoad] = useState<boolean>(true)
 
   async function getData() {
+    setLoad(true)
 
     const dataResponse = new MarvelHelper();
     const response = await dataResponse.getEventOfCharacterById(Number(id));
-
     const result = response.data.results
 
     setCharacterEvents(result)
+    setLoad(false)
   }
 
   useEffect(() => {
     getData()
   }, [])
 
+  if (load) {
+    return (
+      <LoaderStyle>
+        < BarLoader color='#f00c18' width={200} height={10} />
+      </LoaderStyle >
+    )
+  }
+
   return (
     <>
       <Main>
-        ???
+        {!characterEvents || characterEvents.length == 0 && <TextHelp>No Events Founded</TextHelp>}
         {characterEvents.map(item => {
-          return <p>{item.title}</p>
+          return <CardEvents key={item.id} data={item} />
         })}
-        {characterEvents ? JSON.stringify(characterEvents) : ""}
       </Main>
     </>
   )
-}
-interface IDate {
-  data: MarvelCharacter
 }

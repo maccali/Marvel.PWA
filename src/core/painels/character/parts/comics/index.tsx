@@ -1,12 +1,12 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { BarLoader } from 'react-spinners'
 
-import { Main } from './styles'
 import CardCommic from '@/cards/comic'
-
 import MarvelHelper from '@/helpers/MarvelHelper';
-import { useEffect } from 'react';
+
+import { Main, LoaderStyle, TextHelp } from '../styles'
 
 interface ICharacterComicsPainel {
   id: number
@@ -15,28 +15,35 @@ interface ICharacterComicsPainel {
 export default function CharacterComicsPainel({ id }: ICharacterComicsPainel) {
 
   const [characterComics, setCharacterComics] = useState<MarvelComic[]>([])
+  const [load, setLoad] = useState<boolean>(true)
 
   async function getData() {
+    setLoad(true)
 
     const dataResponse = new MarvelHelper();
-    console.log("id", id)
     const response = await dataResponse.getComicsOfCharacterById(Number(id));
-
-    console.log("response", response)
-
     const result = response.data.results
 
     setCharacterComics(result)
-    console.log("result", result)
+    setLoad(false)
   }
 
   useEffect(() => {
     getData()
   }, [])
 
+  if (load) {
+    return (
+      <LoaderStyle>
+        < BarLoader color='#f00c18' width={200} height={10} />
+      </LoaderStyle >
+    )
+  }
+
   return (
     <>
       <Main>
+        {!characterComics || characterComics.length == 0 && <TextHelp>No Events Founded</TextHelp>}
         {characterComics.map(item => {
           return <CardCommic key={item.id} data={item} />
         })}

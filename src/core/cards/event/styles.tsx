@@ -24,9 +24,7 @@ export const Card = styled.div`
   }
 
   &:hover > figcaption p,
-  &:active > figcaption p,
-  &:hover > figcaption hr,
-  &:active > figcaption hr
+  &:active > figcaption p
   {
     opacity: 1;
     transition-delay: .2s;
@@ -51,53 +49,23 @@ export const Card = styled.div`
   figcaption {
     position: absolute;
     display: flex;
-    flex-direction: column;
     background-color: #000000bd;
     height: 0px;
     width: 230px;
     margin-top: 350px;
     color: #fff;
     z-index: 300;
+    padding-left: 8px;
     align-items: center;
     transition: all .1s;
   }
 
-  figcaption p,
-  figcaption hr {
-    opacity: 0;
-    margin-top: 8px;
-    margin-bottom: 8px;
-  }
-
   figcaption p {
-    padding: 8px;
-    font-size: 14px;
-    text-align: center;
-  }
-
-  figcaption hr {
-    width: 50%;
-    background-color: #4d4d4d;
-    border-color: #949494;
-    margin: 0;
-    border-style: dashed;
-  }
-
-  figcaption p.description{
-    display: -webkit-box;
-    -webkit-line-clamp: 13; 
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: justify;
-    -webkit-box-pack: justify;
-    height: 227px;
+    opacity: 0;
   }
 
   &:not(:hover) ~ figcaption p,
-  &:not(:active) ~ figcaption p,
-  &:not(:hover) ~ figcaption hr,
-  &:not(:active) ~ figcaption hr
+  &:not(:active) ~ figcaption p
   {
     transition-delay: 0s;
   }

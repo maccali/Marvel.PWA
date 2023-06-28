@@ -5,9 +5,11 @@ import React from 'react'
 
 import { Main } from './styles'
 
-import CharacterEventsPainel from "@/painels/character/events"
-import CharacterComicsPainel from "@/painels/character/comics"
-
+import CharacterEventsPainel from "@/painels/character/parts/events"
+import CharacterComicsPainel from "@/painels/character/parts/comics"
+import CharacterSeriesPainel from "@/painels/character/parts/series"
+import CharacterStoriesPainel from "@/painels/character/parts/stories"
+import { Container } from '@/utils/container'
 
 interface IDate {
   data: MarvelCharacter
@@ -16,43 +18,63 @@ interface IDate {
 export default function CharacterPainel({ data }: IDate) {
   return (
     <>
-      <Main>
-        <section className='bio'>
-          {/* <Image
+      <Container>
+        <Main>
+          <section className='bio'>
+            {/* <Image
             className='image'
             src={`${data.thumbnail.path.replace(/^http:\/\//i, "https://")}.${data.thumbnail.extension}`}
             alt={`Image of ${data.name}`}
             fill={true}
-
+            
           /> */}
-          <h1 className='name'>{data.name}</h1>
-          <p className='description'>{data.description}</p>
-          <p className='modified'>{data.modified}</p>
-          <p className='urls'>{JSON.stringify(data.urls)}</p>
+            <h1 className='name'>{data.name}</h1>
+            <p className='description'>{data.description}</p>
+            <p className='modified'>{data.modified}</p>
+            <p className='urls'>{JSON.stringify(data.urls)}</p>
 
 
 
-        </section>
-        <section className='comics'>
-          <h2>Comics</h2>
-          <CharacterComicsPainel id={Number(data.id)} />
-          == {JSON.stringify(data.comics.items)}
-        </section>
-        <section className='series'>
-          <h2>Series</h2>
-          {JSON.stringify(data.series.items)}
-        </section>
+          </section>
+          <section className='comics'>
+            <div className='head'>
+              <h2>Comics</h2>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
 
-        <section className='stories'>
-          <h2>Stories</h2>
-          
-          {JSON.stringify(data.stories.items)}
-        </section>
-        <section className='events'>
-
-          <CharacterEventsPainel id={Number(data.id)} />
-        </section>
-      </Main>
+            <CharacterComicsPainel id={Number(data.id)} />
+          </section>
+          <section className='series'>
+            <div className='head'>
+              <h2>Series</h2>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <CharacterSeriesPainel id={Number(data.id)} />
+          </section>
+          <section className='stories'>
+            <div className='head'>
+              <h2>Stories</h2>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <CharacterStoriesPainel id={Number(data.id)} />
+          </section>
+          <section className='events'>
+            <div className='head'>
+              <h2>Events</h2>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <CharacterEventsPainel id={Number(data.id)} />
+          </section>
+        </Main>
+      </Container>
     </>
   )
 }
