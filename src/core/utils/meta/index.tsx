@@ -11,7 +11,7 @@ interface IMeatadate {
   meta?: Metadata
 }
 
-export function generateMetadata({ common, meta }: IMeatadate): Metadata {
+export function customMetadata({ common, meta }: IMeatadate): Metadata {
 
   let siteName = 'Marvel Heroes'
   let title = 'Marvel Heroes - Collection of Mervel Heroes'

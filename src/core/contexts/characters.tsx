@@ -48,7 +48,7 @@ function CharactersProvider({ children }: Props) {
     const limit = 10
     const offset = limit * page
 
-    let result: MarvelApiResponse
+    let result: MarvelApiResponse<MarvelCharacter>
     let results: Array<MarvelCharacter>
 
     if (characterName) {

@@ -11,8 +11,8 @@ export const NavigationMenu = styled.nav`
     display: flex;
     justify-content: space-between;
   }
+  
 `;
-
 
 export const MenuList = styled.ul`
   display: flex;
@@ -23,7 +23,6 @@ export const MenuList = styled.ul`
   & li {
     height: inherit;
   }
-
   & li a,
   & li button {
     display: inline-flex;
@@ -60,7 +59,6 @@ export const MenuList = styled.ul`
     color: #f1f1f1;
     transform: scale(1.25);
   }
-
 
   @media (max-width: 470px) {
     & li a p,

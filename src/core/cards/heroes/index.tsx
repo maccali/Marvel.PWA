@@ -10,7 +10,7 @@ interface IDate {
 export default function CardHeroes({ data }: IDate) {
 
   return (
-    <Navigator title={`Open the page of ${data.name}`} href='/'>
+    <Navigator title={`Open the page of ${data.name}`} href={`/character/${data.id}`}>
       <Card>
         <figure>
           <Image

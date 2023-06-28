@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation';
 
 import { CiSquareInfo, CiSaveDown2, CiSearch } from "react-icons/ci"
 
@@ -16,6 +17,10 @@ function Nav() {
   const [installBtn, setInstallBtn] = useState<boolean>(false)
   const [openSearch, setOpenSearch] = useState<boolean>(false)
   const [deferredPrompt, setDeferredPrompt] = useState<any>()
+
+  const pathname = usePathname()
+
+  console.log(pathname);
 
   useEffect(() => {
     ; (function () {
@@ -67,7 +72,7 @@ function Nav() {
             </li>
           </MenuList>
           <MenuList>
-            <li>
+            {pathname == '/' && <li>
               <Navigator
                 title={`${openSearch ? "Close" : "Open"} Search`}
                 action={() => search()}
@@ -76,7 +81,7 @@ function Nav() {
                 <CiSearch />
                 <p>{openSearch ? "Close" : "Open"} Search</p>
               </Navigator>
-            </li>
+            </li>}
             <li>
               <Navigator
                 title="About the App"
@@ -101,7 +106,7 @@ function Nav() {
             )}</li>
           </MenuList>
         </Container>
-        <SearchComponent openSearch={openSearch} />
+        {pathname == "/" && <SearchComponent openSearch={openSearch} />}
       </NavigationMenu>
     </>
   )

@@ -1,4 +1,4 @@
-interface MarvelApiResponse {
+interface MarvelApiResponse<T> {
   code: number;
   status: string;
   copyright: string;
@@ -10,6 +10,6 @@ interface MarvelApiResponse {
     limit: number;
     total: number;
     count: number;
-    results: MarvelCharacter[];
+    results: T[];
   };
 }

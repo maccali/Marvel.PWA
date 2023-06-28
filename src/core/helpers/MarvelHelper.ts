@@ -5,7 +5,8 @@ class MarvelHelper {
     const privateKey = process.env.MARVEL_PRIVATE_KEY!;
     const publicKey = process.env.MARVEL_PUBLIC_KEY!;
 
-    const ts = Date.now().toString();
+    // const ts = Date.now().toString();
+    const ts = 0;
     const hash = crypto
       .createHash("md5")
       .update(ts + privateKey + publicKey)
@@ -14,17 +15,19 @@ class MarvelHelper {
     return { publicKey, ts, hash };
   }
 
-  async getCharacterById(id: number): Promise<MarvelApiResponse> {
+  async getCharacterById(
+    id: number
+  ): Promise<MarvelApiResponse<MarvelCharacter>> {
     const { publicKey, ts, hash } = this.genCredentials();
 
     let url = `https://gateway.marvel.com/v1/public/characters/${id}`;
     url = url + `?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
 
-    const res = await fetch(url, { method: "GET" });
+    const res = await fetch(url, { method: "GET", next: { revalidate: 60 } });
     const data = await res.json();
     console.log("url -> ", url);
     console.log("data -> ", data);
-    return data;
+    return { ...data };
   }
 
   async getListOfCharacters({
@@ -35,7 +38,7 @@ class MarvelHelper {
     limit: number;
     offset: number;
     characterName?: string;
-  }): Promise<MarvelApiResponse> {
+  }): Promise<MarvelApiResponse<MarvelCharacter>> {
     const { publicKey, ts, hash } = this.genCredentials();
 
     let url = "https://gateway.marvel.com/v1/public/characters";
@@ -51,9 +54,23 @@ class MarvelHelper {
 
     const data = await res.json();
 
-
     console.log("url -> ", url);
     console.log("data -> ", data.code);
+    console.log("data -> ", data);
+    return { ...data };
+  }
+
+  async getEventOfCharacterById(
+    id: number
+  ): Promise<MarvelApiResponse<MarvelEventData>> {
+    const { publicKey, ts, hash } = this.genCredentials();
+
+    let url = `https://gateway.marvel.com/v1/public/characters/${id}/events`;
+    url = url + `?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+
+    const res = await fetch(url, { method: "GET", next: { revalidate: 60 } });
+    const data = await res.json();
+    console.log("url -> ", url);
     console.log("data -> ", data);
     return { ...data };
   }
