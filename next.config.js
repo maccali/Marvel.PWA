@@ -38,4 +38,9 @@ module.exports = withPWA({
   typescript: {
     ignoreBuildErrors: true,
   },
+  reactStrictMode: true,
+  swcMinify: true,
+  compiler: {
+    styledComponents: true,
+  },
 });

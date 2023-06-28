@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "styled-components";
 
 export const Main = styled.div`
@@ -6,7 +8,6 @@ export const Main = styled.div`
   width: 100%;
   flex-wrap: wrap;  
   padding-top: 64px;
-  
 `;
 
 
