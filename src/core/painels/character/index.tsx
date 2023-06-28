@@ -6,6 +6,7 @@ import React from 'react'
 import { Main } from './styles'
 
 import CharacterEventsPainel from "@/painels/character/events"
+import CharacterComicsPainel from "@/painels/character/comics"
 
 
 interface IDate {
@@ -33,8 +34,9 @@ export default function CharacterPainel({ data }: IDate) {
 
         </section>
         <section className='comics'>
-          <h2>Commics</h2>
-          {JSON.stringify(data.comics.items)}
+          <h2>Comics</h2>
+          <CharacterComicsPainel id={Number(data.id)} />
+          == {JSON.stringify(data.comics.items)}
         </section>
         <section className='series'>
           <h2>Series</h2>
@@ -43,6 +45,7 @@ export default function CharacterPainel({ data }: IDate) {
 
         <section className='stories'>
           <h2>Stories</h2>
+          
           {JSON.stringify(data.stories.items)}
         </section>
         <section className='events'>

@@ -14,7 +14,6 @@ export const Main = styled.main`
     grid-template-rows: auto auto auto auto;
     grid-template-columns: 1fr;
 
-    
     .bio {
       grid-area: bio;
     }

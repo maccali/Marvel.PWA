@@ -74,6 +74,21 @@ class MarvelHelper {
     console.log("data -> ", data);
     return { ...data };
   }
+
+  async getComicsOfCharacterById(
+    id: number
+  ): Promise<MarvelApiResponse<MarvelEventData>> {
+    const { publicKey, ts, hash } = this.genCredentials();
+
+    let url = `https://gateway.marvel.com/v1/public/characters/${id}/comics`;
+    url = url + `?ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+
+    const res = await fetch(url, { method: "GET", next: { revalidate: 60 } });
+    const data = await res.json();
+    console.log("url -> ", url);
+    console.log("data -> ", data);
+    return { ...data };
+  }
 }
 
 export default MarvelHelper;

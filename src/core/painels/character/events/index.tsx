@@ -19,15 +19,11 @@ export default function CharacterEventsPainel({ id }: ICharacterEventsPainel) {
   async function getData() {
 
     const dataResponse = new MarvelHelper();
-    console.log("id", id)
     const response = await dataResponse.getEventOfCharacterById(Number(id));
-
-    console.log("response", response)
 
     const result = response.data.results
 
     setCharacterEvents(result)
-    console.log("result", result)
   }
 
   useEffect(() => {

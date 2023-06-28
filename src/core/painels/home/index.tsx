@@ -17,7 +17,7 @@ import { CharactersProvider } from "@/contexts/characters";
 // import crypto from "crypto"
 import { useEffect } from 'react';
 
-import CardHeroes from '@/cards/heroes/index';
+import CardHeroes from '@/cards/character/index';
 import Navigator from '@/utils/navigator';
 
 import { Main } from './styles'
