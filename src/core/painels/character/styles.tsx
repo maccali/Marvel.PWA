@@ -4,14 +4,63 @@ export const Main = styled.main`
     display: grid;
     grid-gap: 10px;
     height: auto;
+    justify-items: center;
     grid-template-areas:
       "bio"
-      "events"
-      "series"
       "comics"
-      "stories";
+      "series"
+      "stories"
+      "events";
     grid-template-rows: auto auto auto auto;
     grid-template-columns: 1fr;
+
+    section.bio{
+      display: grid;
+      justify-content: center;
+      margin-top: 84px;
+      height: 350px;
+      width: calc(230px * 4 + 16px * 3);
+      grid-template-areas:
+      "name"
+      "modified"
+      "image";
+      grid-template-rows: 35px 32px 290px;
+      grid-template-columns: 1fr;
+      column-gap: 16px;
+      color:white;
+    }
+
+    section.bio .image {
+      grid-area: image;
+      display: flex;
+      height: 100%;
+      position: relative;
+    }
+
+    section.bio .image img{
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      object-position: left top;
+    }
+    
+    section.bio .name {
+      grid-area: name;
+      display: flex;
+      align-items: flex-start;
+      margin: 0;
+    }
+    
+    section.bio .description {
+      grid-area: description;
+      margin: 0;
+    }
+    
+    section.bio .modified {
+      grid-area: modified;
+      margin: 0;
+    }
 
     section .head {
       display: flex;
@@ -20,8 +69,10 @@ export const Main = styled.main`
     }
 
     section .head h2 {
+      display: flex;
       margin-top: 16px;
-      height: 30px;
+      height: 50px;
+      align-items: self-end;
     }
 
     section .head div{

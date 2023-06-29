@@ -16,25 +16,28 @@ interface IDate {
 }
 
 export default function CharacterPainel({ data }: IDate) {
+
+  const date = data.modified.split("T")
+  const dateArr = date[0].split("-")
+  const year = dateArr[0]
+  const month = dateArr[1]
+  const day = dateArr[2]
+
   return (
     <>
       <Container>
         <Main>
           <section className='bio'>
-            {/* <Image
-            className='image'
-            src={`${data.thumbnail.path.replace(/^http:\/\//i, "https://")}.${data.thumbnail.extension}`}
-            alt={`Image of ${data.name}`}
-            fill={true}
-            
-          /> */}
+            <div className='image'>
+              <Image
+                src={`${data.thumbnail.path.replace(/^http:\/\//i, "https://")}.${data.thumbnail.extension}`}
+                alt={`Image of ${data.name}`}
+                fill={true}
+
+              />
+            </div>
             <h1 className='name'>{data.name}</h1>
-            <p className='description'>{data.description}</p>
-            <p className='modified'>{data.modified}</p>
-            <p className='urls'>{JSON.stringify(data.urls)}</p>
-
-
-
+            <p className='modified'>{year} - {month} - {day}</p>
           </section>
           <section className='comics'>
             <div className='head'>

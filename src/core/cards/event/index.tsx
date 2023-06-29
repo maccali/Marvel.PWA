@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Card } from './styles';
 
 interface IDate {
-  data: MarvelComic
+  data: MarvelEventData
 }
 
 export default function CardEvent({ data }: IDate) {
@@ -20,6 +20,8 @@ export default function CardEvent({ data }: IDate) {
       </figure>
       <figcaption>
         <p>{data.title}</p>
+        <p>Start At {data.start.split(" ")[0]}</p>
+        <p>End At {data.end.split(" ")[0]}</p>
       </figcaption>
     </Card>
   )

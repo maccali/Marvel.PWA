@@ -45,7 +45,7 @@ export const Card = styled.div`
     display: flex;
     align-self: flex-start;
     object-fit: contain;
-    object-position: left;
+    object-position: left top;
     height: 100%;
     width: 100%;
   }
