@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, ChangeEvent, useContext } from 'react';
+import { useState, ChangeEvent, useContext, FormEvent } from 'react';
 
 import { NumericFormat } from 'react-number-format'
 import { BarLoader } from 'react-spinners'
@@ -29,8 +29,13 @@ function Paginator() {
     getData();
   }, [page])
 
-  const handleActionClick = (changePage: number) => {
+  const handleActionSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setChangePage(changePage + 1)
+    setPage(changePage)
+  };
+
+  const handleActionClick = (changePage: number) => {
     setPage(changePage)
   };
 
@@ -43,30 +48,36 @@ function Paginator() {
     )
   } else {
     if (finishResults == false && fail == false) {
-      return (<PaginatorStyle>
-        <Label >
-          <label htmlFor="pager" aria-label="Type a page">
-            <NumericFormat
-              name="pager"
-              type="text"
-              value={Number(changePage)}
-              onChange={handlePageChange}
-            />
-          </label>
-        </Label>
-        <div >
-          <div >
-            <Navigator
-              title={`Add page ${changePage}`}
-              style="general-icon-text"
-              action={() => handleActionClick(changePage)}
-            >
-              <AiOutlinePlus />
-              <span>More</span>
-            </Navigator>
-          </div>
-        </div>
-      </PaginatorStyle>)
+      return (
+        <form onSubmit={handleActionSubmit}>
+
+          <PaginatorStyle>
+            <Label >
+              <label htmlFor="pager" aria-label="Type a page">
+                <NumericFormat
+                  name="pager"
+                  type="text"
+                  value={Number(changePage)}
+                  onChange={handlePageChange}
+                />
+              </label>
+            </Label>
+            <div >
+              <div >
+                <Navigator
+                  title={`Add page ${changePage}`}
+                  style="general-icon-text"
+                  type='submit'
+                  action={() => handleActionClick(changePage)}
+                >
+                  <AiOutlinePlus />
+                  <span>More</span>
+                </Navigator>
+              </div>
+            </div>
+          </PaginatorStyle>
+        </form>
+      )
     } else {
       if (fail) {
         return (<ProblemStyle>

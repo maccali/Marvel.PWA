@@ -1,0 +1,52 @@
+.card {
+  display: flex;
+}
+
+.card a:hover,
+.card a:focus,
+.card div:hover,
+.card div:focus,
+.card button:hover,
+.card button:focus {
+  transform: scale(1.2) rotate(-15deg);
+}
+
+.card a,
+.card div,
+.card button {
+  transition: all 0.2s;
+  display: flex;
+  width: 33px;
+  height: 33px;
+  margin: 0;
+  margin-left: 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card a svg,
+.card div svg,
+.card button svg {
+  width: 25px;
+  height: 25px;
+  color: white;
+  transition: all 0.15s;
+}
+
+.iconchange {
+  margin-right: 15px;
+}
+
+.iconchange svg {
+  color: #3cb371 !important;
+  height: 25px !important;
+}
+
+@media (max-width: 992px) {
+  .card a svg,
+  .card div svg,
+  .card button svg {
+    width: 20px;
+    height: 20px;
+  }
+}

@@ -10,6 +10,7 @@ import CharacterComicsPainel from "@/painels/character/parts/comics"
 import CharacterSeriesPainel from "@/painels/character/parts/series"
 import CharacterStoriesPainel from "@/painels/character/parts/stories"
 import { Container } from '@/utils/container'
+import Social from '@/components/social';
 
 interface IDate {
   data: MarvelCharacter
@@ -36,7 +37,10 @@ export default function CharacterPainel({ data }: IDate) {
 
               />
             </div>
-            <h1 className='name'>{data.name}</h1>
+            <div className='name'>
+              <h1 >{data.name}</h1>
+              <Social text={`${data.description}`} title={`${data.name}`} url={`character/${data.id}`} />
+            </div>
             <p className='modified'>{year} - {month} - {day}</p>
           </section>
           <section className='comics'>

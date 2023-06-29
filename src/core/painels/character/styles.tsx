@@ -50,6 +50,10 @@ export const Main = styled.main`
       margin: 0;
     }
     
+    section.bio .name h1{
+      margin: 0;
+    }
+
     section.bio .description {
       grid-area: description;
       margin: 0;

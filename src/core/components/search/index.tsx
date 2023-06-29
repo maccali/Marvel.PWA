@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, ChangeEvent, useContext } from 'react';
+import { useState, ChangeEvent, useContext, FormEvent } from 'react';
 import { CharactersContext } from "@/contexts/characters";
 
 
@@ -23,7 +23,11 @@ export default function SearchCompoment({ openSearch }: ISearch) {
     setChangeName(named ? named : undefined);
   };
 
-  function getSearch() {
+
+  function getSearch(event?: FormEvent<HTMLFormElement>) {
+    if (event) {
+      event.preventDefault();
+    }
     setCharacterName(changeName)
   }
 
@@ -33,17 +37,19 @@ export default function SearchCompoment({ openSearch }: ISearch) {
 
 
   return <Search >
-    <div className={`${openSearch ? "active" : "inactive"}`}>
-      <SearchInputContainer>
-        <input type="text" value={changeName} onChange={handleNameChange} />
-      </SearchInputContainer>
-      <SearchButtonContainer>
-        <Navigator title='Pesquisar' style='general-icon' action={() => {
-          getSearch()
-        }}>
-          <AiOutlineArrowRight />
-        </ Navigator>
-      </SearchButtonContainer>
-    </div>
+    <form onSubmit={getSearch}>
+      <div className={`${openSearch ? "active" : "inactive"}`}>
+        <SearchInputContainer>
+          <input type="text" value={changeName} onChange={handleNameChange} />
+        </SearchInputContainer>
+        <SearchButtonContainer>
+          <Navigator title='Pesquisar' type='submit' style='general-icon' action={() => {
+            getSearch()
+          }}>
+            <AiOutlineArrowRight />
+          </ Navigator>
+        </SearchButtonContainer>
+      </div>
+    </form>
   </Search>;
 }

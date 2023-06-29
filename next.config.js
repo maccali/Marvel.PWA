@@ -23,6 +23,7 @@ module.exports = withPWA({
   env: {
     MARVEL_PUBLIC_KEY: process.env.MARVEL_PUBLIC_KEY,
     MARVEL_PRIVATE_KEY: process.env.MARVEL_PRIVATE_KEY,
+    APP_URL: process.env.APP_URL,
   },
   images: {
     deviceSizes: [320, 640, 768, 1024, 1600],

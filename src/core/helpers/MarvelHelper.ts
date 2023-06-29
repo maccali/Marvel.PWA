@@ -82,7 +82,7 @@ class MarvelHelper {
 
   async getSeriesOfCharacterById(
     id: number
-  ): Promise<MarvelApiResponse<MarvelSerie>> {
+  ): Promise<MarvelApiResponse<MarvelSeries>> {
     const { publicKey, ts, hash } = this.genCredentials();
 
     let url = `https://gateway.marvel.com/v1/public/characters/${id}/series`;
