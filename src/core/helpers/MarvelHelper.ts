@@ -6,7 +6,7 @@ class MarvelHelper {
     const publicKey = process.env.MARVEL_PUBLIC_KEY!;
 
     // const ts = Date.now().toString();
-    const ts = 0;
+    const ts = "0";
     const hash = crypto
       .createHash("md5")
       .update(ts + privateKey + publicKey)
