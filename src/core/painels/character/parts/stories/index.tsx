@@ -43,7 +43,9 @@ export default function CharacterStoriesPainel({ id }: ICharacterComicsPainel) {
   return (
     <>
       <Main>
-        {!characterStories || characterStories.length == 0 && <TextHelp>No Events Founded</TextHelp>}
+        {!characterStories || characterStories.length == 0 && <TextHelp>
+          <span>No Stories Founded</span>
+        </TextHelp>}
 
         {characterStories.map(item => {
           return <CardStorie key={item.id} data={item} />

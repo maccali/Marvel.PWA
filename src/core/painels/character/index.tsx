@@ -58,15 +58,6 @@ export default function CharacterPainel({ data }: IDate) {
             </div>
             <CharacterSeriesPainel id={Number(data.id)} />
           </section>
-          <section className='stories'>
-            <div className='head'>
-              <h2>Stories</h2>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-            <CharacterStoriesPainel id={Number(data.id)} />
-          </section>
           <section className='events'>
             <div className='head'>
               <h2>Events</h2>
@@ -75,6 +66,15 @@ export default function CharacterPainel({ data }: IDate) {
               <div></div>
             </div>
             <CharacterEventsPainel id={Number(data.id)} />
+          </section>
+          <section className='stories'>
+            <div className='head'>
+              <h2>Stories</h2>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <CharacterStoriesPainel id={Number(data.id)} />
           </section>
         </Main>
       </Container>

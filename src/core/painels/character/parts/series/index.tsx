@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react'
 import { BarLoader } from 'react-spinners'
+import { BiSolidRightArrow, BiSolidLeftArrow, } from "react-icons/bi"
+import { ScrollingCarousel } from '@trendyol-js/react-carousel';
 
 import CardSerie from '@/cards/serie'
 import MarvelHelper from '@/helpers/MarvelHelper';
@@ -43,10 +45,14 @@ export default function CharacterSeriesPainel({ id }: ICharacterSeriesPainel) {
   return (
     <>
       <Main>
-        {!characterSeries || characterSeries.length == 0 && <TextHelp>No Events Founded</TextHelp>}
-        {characterSeries.map(item => {
-          return <CardSerie key={item.id} data={item} />
-        })}
+        {!characterSeries || characterSeries.length == 0 && <TextHelp>
+          <span>No Series Founded</span>
+        </TextHelp>}
+        <ScrollingCarousel className='carousel' leftIcon={<BiSolidLeftArrow />} rightIcon={<BiSolidRightArrow />} >
+          {characterSeries.map(item => {
+            return <CardSerie key={item.id} data={item} />
+          })}
+        </ScrollingCarousel>
       </Main>
     </>
   )

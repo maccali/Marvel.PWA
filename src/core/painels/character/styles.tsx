@@ -1,25 +1,19 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-    display: grid;
-    grid-gap: 10px;
+    display: flex;
     height: auto;
+    width: 100%;
+    flex-direction: column;
     justify-items: center;
-    grid-template-areas:
-      "bio"
-      "comics"
-      "series"
-      "stories"
-      "events";
-    grid-template-rows: auto auto auto auto;
-    grid-template-columns: 1fr;
 
     section.bio{
       display: grid;
       justify-content: center;
+      margin: 8px;
       margin-top: 84px;
       height: 350px;
-      width: calc(230px * 4 + 16px * 3);
+      width: 100%;
       grid-template-areas:
       "name"
       "modified"
@@ -29,6 +23,10 @@ export const Main = styled.main`
       column-gap: 16px;
       color:white;
     }
+
+    section {
+      width: 100%;
+    } 
 
     section.bio .image {
       grid-area: image;
@@ -65,7 +63,7 @@ export const Main = styled.main`
     section .head {
       display: flex;
       flex-direction: row;
-      justify-content: center ;
+      justify-content: left ;
     }
 
     section .head h2 {

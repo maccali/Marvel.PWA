@@ -6,7 +6,7 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   width: 300px;
-  height: 250px;
+  height: 350px;
   text-decoration: none;
   margin: 8px;
   transition: all 0.3s;
@@ -19,7 +19,7 @@ export const Card = styled.div`
 
   &:hover > figcaption,
   &:active > figcaption {
-    height: 250px;
+    height: 350px;
     margin-top: 0px;
     transition: height 0.3s; /* Adicionando transição específica para a altura */
   }
