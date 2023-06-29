@@ -12,16 +12,22 @@ export const Main = styled.main`
       justify-content: center;
       margin: 8px;
       margin-top: 84px;
-      height: 350px;
+      height: auto;
       width: 100%;
       grid-template-areas:
       "name"
       "modified"
       "image";
-      grid-template-rows: 35px 32px 290px;
+      grid-template-rows: auto auto 290px;
       grid-template-columns: 1fr;
       column-gap: 16px;
       color:white;
+    }
+
+    @media (max-width: 460px) {
+      section.bio{
+        grid-template-rows: auto auto 200px;
+      }
     }
 
     section {
@@ -61,6 +67,8 @@ export const Main = styled.main`
     
     section.bio .modified {
       grid-area: modified;
+      display: flex;
+      align-items: center;
       margin: 0;
     }
 

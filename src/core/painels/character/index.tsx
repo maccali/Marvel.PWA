@@ -39,9 +39,11 @@ export default function CharacterPainel({ data }: IDate) {
             </div>
             <div className='name'>
               <h1 >{data.name}</h1>
+            </div>
+            <div className='modified'>
+              <p >{year} - {month} - {day}</p>
               <Social text={`${data.description}`} title={`${data.name}`} url={`character/${data.id}`} />
             </div>
-            <p className='modified'>{year} - {month} - {day}</p>
           </section>
           <section className='comics'>
             <div className='head'>

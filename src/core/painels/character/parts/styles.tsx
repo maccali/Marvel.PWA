@@ -44,6 +44,26 @@ export const Main = styled.div`
     padding-right: 16px;
 
   }
+
+  @media (max-width: 460px) {
+    .carousel div[data-arrow]{
+      width: 32px;
+      height: 32px;
+
+      svg {
+        height: 15px;
+        width: 15px;
+      }
+    }
+
+    .carousel div[data-arrow="right"]{
+      padding-left: 8px;
+    }
+    
+    .carousel div[data-arrow="left"]{
+      padding-right: 8px;
+    }
+  }
 `;
 
 export const TextHelp = styled.div`
