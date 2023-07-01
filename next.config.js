@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-
 const withPWA = require("next-pwa");
 const runtimeCaching = require("next-pwa/cache");
 
@@ -42,5 +41,10 @@ module.exports = withPWA({
   },
   eslint: {
     ignoreDuringBuilds: true,
+  },
+  reactStrictMode: true,
+  swcMinify: true,
+  compiler: {
+    styledComponents: true,
   },
 });
