@@ -43,7 +43,4 @@ module.exports = withPWA({
   eslint: {
     ignoreDuringBuilds: true,
   },
-  compiler: {
-    styledComponents: true,
-  },
 });
