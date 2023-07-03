@@ -58,7 +58,7 @@ export function customMetadata({ common, meta }: IMeatadate): Metadata {
       images: [common?.imagemUrl ? common.imagemUrl : imagemUrl],
     },
     verification: {
-      google: "-qP_Y2Q4EO7Enuwo1gn9IcIn-95sZj6feOxsPui30iQ"
+      google: "imEmJjnY8LRB_gCyQpOHG1E6dLgt7_SySHboWMsERho"
     },
     robots: {
       index: true,
