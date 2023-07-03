@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation';
 
 import { CiSquareInfo, CiSaveDown2, CiSearch } from "react-icons/ci"
+import ReactGA from "react-ga4";
 
 import Navigator from '@/utils/navigator'
 
@@ -21,6 +22,12 @@ function Nav() {
   const pathname = usePathname()
 
   console.log(pathname);
+
+  useEffect(() => {
+    if (window.location.hostname !== 'localhost') {
+      ReactGA.initialize('G-SJ89TR41X5')
+    }
+  })
 
   useEffect(() => {
     ; (function () {
