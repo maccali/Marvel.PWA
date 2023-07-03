@@ -9,6 +9,7 @@ export const Main = styled.div`
   flex-wrap: wrap;
   margin-bottom: 32px;
 
+
   .carousel div { 
     overflow-y: hidden;
   }
@@ -47,6 +48,7 @@ export const Main = styled.div`
 
   @media (max-width: 460px) {
     .carousel div[data-arrow]{
+      display: none;
       width: 32px;
       height: 32px;
 

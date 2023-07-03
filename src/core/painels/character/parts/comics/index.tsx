@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { BarLoader } from 'react-spinners'
 import { BiSolidRightArrow, BiSolidLeftArrow, } from "react-icons/bi"
-import { ScrollingCarousel } from '@trendyol-js/react-carousel';
+import { ScrollingCarousel, Carousel } from '@trendyol-js/react-carousel';
 
 import CardCommic from '@/cards/comic'
 import MarvelHelper from '@/helpers/MarvelHelper';
@@ -53,6 +53,11 @@ export default function CharacterComicsPainel({ id }: ICharacterComicsPainel) {
             return <CardCommic key={item.id} data={item} />
           })}
         </ScrollingCarousel>
+        {/* <Carousel className='carousel' swiping={true} slide={1} show={1} leftIcon={<BiSolidLeftArrow />} rightIcon={<BiSolidRightArrow />} >
+          {characterComics.map(item => {
+            return <CardCommic key={item.id} data={item} />
+          })}
+        </Carousel> */}
       </Main>
     </>
   )
