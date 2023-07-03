@@ -38,7 +38,8 @@ export function customMetadata({ common, meta }: IMeatadate): Metadata {
     description: common?.description ? common.description : description,
     other: {
       "apple-mobile-web-app-capable": "yes",
-      "apple-mobile-web-app-status-bar-style": "black"
+      "apple-mobile-web-app-status-bar-style": "black",
+      "msvalidate.01": "81683EFDA66EF8B29045BBAF04D02DBD"
     },
     openGraph: {
       type: "website",
@@ -58,7 +59,7 @@ export function customMetadata({ common, meta }: IMeatadate): Metadata {
       images: [common?.imagemUrl ? common.imagemUrl : imagemUrl],
     },
     verification: {
-      google: "imEmJjnY8LRB_gCyQpOHG1E6dLgt7_SySHboWMsERho"
+      google: "imEmJjnY8LRB_gCyQpOHG1E6dLgt7_SySHboWMsERho",
     },
     robots: {
       index: true,
