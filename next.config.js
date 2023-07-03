@@ -47,9 +47,11 @@ module.exports = withPWA({
   //   runtimeCaching,
   //   mode: "production",
   // },
-  webpack: (config) => {
-    const entry = generateAppDirEntry(config.entry);
-    config.entry = () => entry;
+  webpack: (config, {dev }) => {
+    if (!dev) {
+      const entry = generateAppDirEntry(config.entry);
+      config.entry = () => entry;
+    }
 
     return config;
   },
@@ -76,7 +78,7 @@ module.exports = withPWA({
     ignoreDuringBuilds: true,
   },
   reactStrictMode: true,
-  swcMinify: true,
+  // swcMinify: true,
   compiler: {
     styledComponents: true,
   },

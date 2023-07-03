@@ -30,18 +30,23 @@ function Nav() {
   })
 
   useEffect(() => {
-    ; (function () {
+    ;(function () {
       window.addEventListener('beforeinstallprompt', e => {
-        // Prevent the mini-infobar from appearing on mobile
-        e.preventDefault()
-        // Stash the event so it can be triggered later.
-        setDeferredPrompt(e)
-        // Update UI notify the user they can install the PWA
-        // showInstallPromotion();
-        setInstallBtn(true)
+        try {
+          // Prevent the mini-infobar from appearing on mobile
+          e.preventDefault()
+          // Stash the event so it can be triggered later.
+          setDeferredPrompt(e)
+          // Update UI to notify the user they can install the PWA
+          // showInstallPromotion();
+          setInstallBtn(true)
+        } catch (error) {
+          console.error('Error in beforeinstallprompt event listener:', error)
+        }
       })
     })()
-  })
+  }, [])
+  
 
   function install() {
     setInstallBtn(false)
