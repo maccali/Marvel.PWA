@@ -60,6 +60,7 @@ export function customMetadata({ common, meta }: IMeatadate): Metadata {
     },
     verification: {
       google: "imEmJjnY8LRB_gCyQpOHG1E6dLgt7_SySHboWMsERho",
+      yandex: "4f9b0c39a84d2204"
     },
     robots: {
       index: true,
