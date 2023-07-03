@@ -1,10 +1,22 @@
 {
   "name": "Marvel Heroes",
   "short_name": "Marvel Heroes",
+  "categories": [
+    "pictu",
+    "marvel",
+    "characters",
+    "images",
+    "education",
+    "entertainment",
+    "government",
+    "photo",
+    "utilities"
+  ],
+  "description": "App based in Marvel API",
+  "display": "standalone",
+  "orientation": "portrait",
   "theme_color": "#202020",
   "background_color": "#202020",
-  "display": "fullscreen",
-  "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
   "icons": [
@@ -29,5 +41,7 @@
       "type": "image/png"
     }
   ],
+  "dir": "ltr",
+  "display_override": ["standalone", "fullscreen", "browser", "minimal-ui"],
   "splash_pages": null
 }
