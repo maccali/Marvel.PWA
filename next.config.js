@@ -39,6 +39,13 @@ const withPWA = withPWAInit({
   // Solution: https://github.com/shadowwalker/next-pwa/issues/424#issuecomment-1399683017
   buildExcludes: ["app-build-manifest.json"],
   mode: "production",
+  fallbacks: {
+    // image: '/static/images/fallback.png'
+    document: "/offline", // if you want to fallback to a custom page other than /_offline
+    // font: '/static/font/fallback.woff2',
+    // audio: ...,
+    // video: ...,
+  },
 });
 
 module.exports = withPWA({
@@ -47,7 +54,7 @@ module.exports = withPWA({
   //   runtimeCaching,
   //   mode: "production",
   // },
-  webpack: (config, {dev }) => {
+  webpack: (config, { dev }) => {
     if (!dev) {
       const entry = generateAppDirEntry(config.entry);
       config.entry = () => entry;
