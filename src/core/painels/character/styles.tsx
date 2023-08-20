@@ -70,6 +70,7 @@ export const Main = styled.main`
       display: flex;
       align-items: center;
       margin: 0;
+      margin-bottom: 15px;
     }
 
     section .head {

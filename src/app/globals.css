@@ -36,6 +36,11 @@ body {
   background-color: var(--black-bg);
 }
 
+/* html {
+  height: 100%;
+  overflow-x: hidden;
+} */
+
 a,
 a:hover,
 a:focus {

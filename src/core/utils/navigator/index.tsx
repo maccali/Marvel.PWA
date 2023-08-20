@@ -136,7 +136,7 @@ function Navigator({
 
   if (href) {
     return (
-      <Link {...dataClass} href={href}>
+      <Link {...dataClass} scroll={false} href={href}>
         {children}
       </Link>
     );

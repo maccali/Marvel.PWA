@@ -34,7 +34,6 @@ export default function CharacterPainel({ data }: IDate) {
                 src={`${data.thumbnail.path.replace(/^http:\/\//i, "https://")}.${data.thumbnail.extension}`}
                 alt={`Image of ${data.name}`}
                 fill={true}
-
               />
             </div>
             <div className='name'>
