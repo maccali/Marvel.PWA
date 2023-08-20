@@ -1,0 +1,39 @@
+.modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 0%;
+  z-index: 1000;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: var(--black-bg);
+  transition: all .2s;
+}
+
+.modalOpen{
+  width: 100% 
+}
+
+.nav {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  position: fixed;
+  width: 100% !important;
+  height: 60px;
+  background-color: var(--black);
+  z-index: 800;
+}
+
+.nav button svg {
+  color: white;
+  height: 24px;
+  width: 24px;
+}
+
+.content{
+  display: flex;
+  width: 100%;
+}

@@ -1,24 +1,14 @@
 "use client"
 
-import Image from 'next/image'
-import React, { useState, useContext } from 'react'
-import { NumericFormat } from 'react-number-format'
+import React, { useContext } from 'react'
 
-// import { NumericFormat } from 'react-number-format'
-// import PuffLoader from 'react-spinners/PuffLoader'
-import { AiOutlinePlus } from 'react-icons/ai'
-
-
-import MarvelHelper from '@/helpers/MarvelHelper'
 
 import { CharactersContext } from "@/contexts/characters";
-import { CharactersProvider } from "@/contexts/characters";
 
 // import crypto from "crypto"
 import { useEffect } from 'react';
 
 import CardHeroes from '@/cards/character/index';
-import Navigator from '@/utils/navigator';
 
 import { Main } from './styles'
 
@@ -38,7 +28,7 @@ export default function HomePainel() {
       <Main>
         {charactersResponse?.map(item =>
           // <CardHeroes key={item.id} data={item} />
-          <CardHeroes data={item} />
+          <CardHeroes data={item} key={item.id} />
         )}
       </Main>
       <Paginator />

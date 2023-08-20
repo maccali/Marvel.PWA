@@ -147,6 +147,7 @@ function Navigator({
         {style === "general-icon" && <GeneralIcon {...dataClass}>{children}</GeneralIcon>}
         {style === "general-linked-text" && <GeneralLinkedText {...dataClass}>{children}</GeneralLinkedText>}
         {style === "menu-icon" && <MenuIcon {...dataClass}>{children}</MenuIcon>}
+        {style === undefined && <button {...dataClass}>{children}</button>}
       </>
     );
   }
